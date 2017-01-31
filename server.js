@@ -1,10 +1,8 @@
 var express = require('express');
 var app = express();
 
-//route to our index page
-app.get('/',function (req,res){
-	res.send("Hello World");
-});
+//static for html, js files in folder public
+app.use(express.static(__dirname + "/public"));
 
 app.listen(3000);
 console.log("Server is running on port 3000");
