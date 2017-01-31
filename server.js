@@ -7,11 +7,16 @@ app.use(express.static(__dirname + "/public"));
 app.get('/itemList', function(req,res){
 	console.log("I received a GET request");
 	item1 = {
-		name: 'Jong'
+		name: 'Server received the entered text!'
 	};
 
     var itemList = [item1];
     res.json(itemList);
+	
+});
+
+app.post('/itemList', function(req,res){
+    res.json('POST respond');
 });
 
 app.listen(3000);
