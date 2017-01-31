@@ -12,6 +12,8 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
 	    });
 	};
 
+	refresh();
+
     $scope.addData = function(){
     	$http({
     		method: 'POST',
@@ -19,6 +21,7 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
     		data: $scope.input
     	}).then(function(response){
     		console.log(response);
+    		$scope.input.username =""; //Clear input box
     		$scope.input.data =""; //Clear input box
     		refresh();
     	});
