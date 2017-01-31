@@ -8,9 +8,8 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
 	    	method: 'GET',
 	    	url: '/itemList'
 	    }).then(function(response){
-	    	console.log(response.data[0].name);
 	    	$scope.itemList = response.data;
-	    })  
+	    });
 	};
 
     $scope.addData = function(){
@@ -19,8 +18,9 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
     		url: 'itemList',
     		data: $scope.input
     	}).then(function(response){
-    		$scope.input =""; //Clear input box
+    		console.log(response);
+    		$scope.input.data =""; //Clear input box
     		refresh();
-    	})
+    	});
 	};
 }]);
