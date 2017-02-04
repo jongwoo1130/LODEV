@@ -1,5 +1,16 @@
+//setup https
+var fs = require('fs');
+var https = require('https');
+var hshkey = fs.readFileSync('server.key');
+var hscert = fs.readFileSync('server.crt');
+
+var options = {
+	key: hshkey,
+	cert: hscert
+};
+
 var express = require('express');
-var app = express();
+var app = require('express')();
 var mongojs = require('mongojs');
 //first arg = which database, second arg = which collection
 var db = mongojs('LODEV',['LODEV']);
@@ -50,7 +61,7 @@ app.post('/itemList', function(req,res){
 });
 
 function getGeo(req, callback, ret){
-	geocoder.geocode(req.body.data, function(err,data){
+	geocoder.geocode(req.body.location, function(err,data){
 		if(data.results[0]){
 			var latitude = data.results[0].geometry.location.lat;
 			var longitude = data.results[0].geometry.location.lng;
@@ -74,5 +85,7 @@ function getTemperature(req,lat,lng,data){
 	});
 }
 
-app.listen(3000);
-console.log("Server is running on port 3000...");
+//app.listen(3000);
+https.createServer(options, app).listen(3000, function () {
+   console.log("Server is running on port 3000...");
+});
