@@ -10,7 +10,7 @@ var options = {
 };
 
 var express = require('express');
-var app = require('express')();
+var app = express();
 var mongojs = require('mongojs');
 //first arg = which database, second arg = which collection
 var db = mongojs('LODEV',['LODEV']);
