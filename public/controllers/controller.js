@@ -23,8 +23,9 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
 			if(response.data === 'duplicate'){
 				$scope.duplicate = "Data already exists!";
 			}else{
-    			$scope.input.username =""; //Clear input box
-    			$scope.input.data =""; //Clear input box
+    			$scope.input.username = ""; //Clear input box
+    			$scope.input.data = ""; //Clear input box
+				$scope.duplicate = "";
 				refresh();
 			}
     	});
