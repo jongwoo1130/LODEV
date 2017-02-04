@@ -3,19 +3,17 @@
 	<head>
 		<title>LODEV</title>
 	</head>
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
 	<body>
 		<div class="container" ng-controller="AppCtrl">
 			<h1>Hello World</h1>
 			<table class="table">
-				<thead>
+				<thead class="thead-default">
 					<tr>
 						<th>Username</th>
 						<th>Data</th>
+						<th>Location</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -26,12 +24,28 @@
 								<input class="form-control" ng-model="input.data">
 								<span class="help-inline" ng-show="submitted && duplicate">{{duplicate}}</span>
 							</td>
+							<td><input class="form-control" ng-model="input.location"></td>
 							<td><button class="btn btn-primary" ng-click="submitted=true; addData()">Done</button></td>
 						</div>
 					</tr>
+				</tbody>
+			</table>
+			<table class="table">
+				<thead class="thead-default">
+					<tr>
+						<th>Username</th>
+						<th>Data</th>
+						<th>Location</th>
+						<th>Latitude</th>
+						<th>Longitude</th>
+						<th>Temperature</th>
+					</tr>
+				</thead>
+				<tbody>
 					<tr ng-repeat="item in itemList">
 						<td>{{item.username}}</td>
 						<td>{{item.data}}</td>
+						<td>{{item.location}}</td>
 						<td>{{item.latitude}}</td>
 						<td>{{item.longitude}}</td>
 						<td>{{item.temperature}}</td>

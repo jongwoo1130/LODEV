@@ -25,6 +25,7 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
 			}else{
     			$scope.input.username = ""; //Clear input box
     			$scope.input.data = ""; //Clear input box
+				$scope.input.location = "";
 				$scope.duplicate = "";
 				refresh();
 			}
