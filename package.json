@@ -1,0 +1,31 @@
+{
+  "name": "lodev",
+  "version": "1.0.0",
+  "description": "web app",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "chai": "^3.5.0",
+    "express": "^4.14.1",
+    "request": "^2.79.0"
+  },
+  "devDependencies": {
+    "mocha": "^3.2.0"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter spec",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jongwoo1130/LODEV.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jongwoo1130/LODEV/issues"
+  },
+  "homepage": "https://github.com/jongwoo1130/LODEV#readme"
+}
