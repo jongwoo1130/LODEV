@@ -20,10 +20,13 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
     		url: 'itemList',
     		data: $scope.input
     	}).then(function(response){
-    		console.log(response);
-    		$scope.input.username =""; //Clear input box
-    		$scope.input.data =""; //Clear input box
-    		refresh();
+			if(response.data === 'duplicate'){
+				$scope.duplicate = "Data already exists!";
+			}else{
+    			$scope.input.username =""; //Clear input box
+    			$scope.input.data =""; //Clear input box
+				refresh();
+			}
     	});
 	};
 }]);

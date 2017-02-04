@@ -14,7 +14,6 @@ app.get('/itemList', function(req,res){
 	console.log("I received a GET request");
 	
 	db.LODEV.find(function(err,docs){
-		console.log(docs);
 		res.json(docs);
 	})
 	
@@ -22,10 +21,19 @@ app.get('/itemList', function(req,res){
 
 app.post('/itemList', function(req,res){
 	var date = new Date();
-	req.body.date = date;
-	db.LODEV.insert(req.body, function(err,doc){
-		res.json(doc);
+	req.body.date = date.toLocaleString();
+	var query = {};
+	query['data'] = req.body.data;
+	db.LODEV.find(query,function(err,doc){
+		if(doc.length == 0){
+			db.LODEV.insert(req.body, function(err,doc){
+				res.json(doc);
+			});
+		}else{
+			res.json('duplicate');
+		}
 	});
+	
 });
 
 app.listen(3000);

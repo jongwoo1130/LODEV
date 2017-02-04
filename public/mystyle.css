@@ -1,0 +1,7 @@
+.help-inline{
+    display:inline-block;
+    color:red;
+    font-style: italic;
+    font-size:75%;
+    text-indent: 10px;
+}
