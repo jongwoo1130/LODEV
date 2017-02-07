@@ -1,3 +1,4 @@
 #!/bin/sh
 
-/usr/local/bin/node server
+git pull . master
+at now -f /usr/local/bin/node server
