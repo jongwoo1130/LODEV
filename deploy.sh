@@ -1,5 +1,3 @@
 #!/bin/sh
 
-
-git pull
-node server
+/usr/local/bin/node server
