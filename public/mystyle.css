@@ -5,4 +5,8 @@
     font-size:75%;
     text-indent: 10px;
 }
-
+#footer {
+    position:absolute;
+    bottom:-150px;
+    width:100%;
+}
