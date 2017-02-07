@@ -1,4 +1,4 @@
 #!/bin/sh
 
 git pull . master
-at now -f /usr/local/bin/node server
+nohup /usr/local/bin/node server >some.log 2>&1 </dev/null &
