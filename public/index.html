@@ -7,13 +7,14 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
 	<body>
 		<div class="container" ng-controller="AppCtrl">
-			<h1>Hello World</h1>
+			<h1>Loyalty One</h1>
 			<table class="table">
-				<thead class="thead-default">
+				<thead class="thead-default" id="lodevhead">
 					<tr>
 						<th>Username</th>
 						<th>Data</th>
 						<th>Location</th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -30,8 +31,8 @@
 					</tr>
 				</tbody>
 			</table>
-			<table class="table" id="footer">
-				<thead class="thead-default">
+			<table class="table table-highlight table-horizontal">
+				<thead class="thead-default" id="lodevhead"> 
 					<tr>
 						<th>Username</th>
 						<th>Data</th>
@@ -49,7 +50,6 @@
 						<td>{{item.latitude}}</td>
 						<td>{{item.longitude}}</td>
 						<td>{{item.temperature}}</td>
-						<td></td>
 					</tr>
 				</tbody>
 			</table>
