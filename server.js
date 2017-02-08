@@ -55,6 +55,7 @@ app.post('/itemList', function(req,res){
 				});
 			});	
 		}else{
+			res.status(403);
 			res.json('duplicate');
 		}
 	});
@@ -89,3 +90,33 @@ function getTemperature(req,lat,lng,data){
 https.createServer(options, app).listen(3000, function () {
    console.log("Server is running on port 3000...");
 });
+
+
+/************************ Export Functions ************************/
+
+exports.rgbToHex = function(red, green, blue) {
+
+  var redHex   = red.toString(16);
+  var greenHex = green.toString(16);
+  var blueHex  = blue.toString(16);
+
+  return pad(redHex) + pad(greenHex) + pad(blueHex);
+
+};
+
+function pad(hex) {
+  return (hex.length === 1 ? "0" + hex : hex);
+}
+
+
+exports.getTemperature = function (req,lat,lng,data){
+	var temperature;
+	forecast.get([lat,lng], function(err,weather){
+		if(err) return console.log("err in get temp" + err);
+		temperature = weather.currently.temperature;
+		req.body.temperature = temperature;
+		return data(temperature);
+	});
+}
+
+/************************ Export Functions ************************/
