@@ -40,29 +40,42 @@ h1 span{
 
 .container{
     clear:both;
+    vertical-align: bottom;
 }
 
 .title{
     float:left;   
 }
 
+
+.footer{
+    margin-top: 20px;
+    height: 30px;
+    float:right;
+}
+
+.footer p{
+    font: normal bold 18px Courier New, sans-serif;
+}
+
 .box {
-  float:left;
-  margin-left:10px;
-  margin-top:20px;
-  background: #5FCF80;
-  width: 20px;
-  height: 20px;
+    -webkit-transform: rotate(-360deg);
+    float:left;
+    margin-left:10px;
+    margin-top:20px;
+    background: #336B6B;
+    width: 22px;
+    height: 22px;
 }
 
 .box:hover {
-  -webkit-transform: rotate(360deg);
-  background: #9351A6;
-  border-radius: 50%;
+    -webkit-transform: rotate(360deg);
+    background: #79BDE8;
+    border-radius: 50%;
 }
 
 .rotate {
-  -webkit-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
     -o-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
@@ -126,6 +139,19 @@ animation:*/
   animation-timing-function: ease-out;  
   -webkit-animation-timing-function: ease-out;  
 }
+
+
+img.footer-logo {-webkit-opacity: 0.4;-moz-opacity: 0.4;opacity: 0.4;}
+img.footer-logo:hover {opacity:1;transition: all .8s ease-in-out;-moz-transition:all .8s ease-in-out;-webkit-transition:all .8s ease-in-out;}
+
+/*----BOOTSTRAP ICONS----*/
+.fa, .fa:active, .fa:visited {-webkit-opacity: 0.6;-moz-opacity: 0.6;opacity: 0.6;}
+.fa a {color:dedede;}
+.fa:hover {opacity:1;transition: all .8s ease-in-out;-moz-transition:all .8s ease-in-out;-webkit-transition:all .8s ease-in-out;}
+
+.fa-linkedin:before {color: #0e76a8;}
+.fa-linkedin {color: #0e76a8;}
+
 
 
 
