@@ -7,9 +7,12 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
 	<body>
 		<div class="container" ng-controller="AppCtrl">
-			<h1>Loyalty<span>One</span></h1>
+			<div class="title">
+				<h1>Loyalty<span>One</span></h1>
+			</div>
+			<div class="box rotate"></div>
 			<table class="table">
-				<thead class="thead-default" id="lodevhead">
+				<thead class="thead-default">
 					<tr>
 						<th>Username</th>
 						<th>Data</th>
@@ -19,20 +22,20 @@
 				</thead>
 				<tbody>
 					<tr>
-						<div class="control-group" ng-class="{true: 'error'}[submitted]">
+						<div class="control-group" ng-class="{true: 'error'}[submitted]"> 
 							<td><input class="form-control" ng-model="input.username"></td>
 							<td>
 								<input class="form-control" ng-model="input.data">
 								<span class="help-inline" ng-show="submitted && duplicate">{{duplicate}}</span>
 							</td>
 							<td><input class="form-control" ng-model="input.location"></td>
-							<td><button class="btn btn-primary" ng-click="submitted=true; addData()">Done</button></td>
+							<td><button class="btn btn-info" ng-click="submitted=true; addData()">Done</button></td>
 						</div>
 					</tr>
 				</tbody>
 			</table>
 			<table class="table table-highlight table-horizontal">
-				<thead class="thead-default" id="lodevhead"> 
+				<thead class="thead-default" ng-click="active=!active"> 
 					<tr>
 						<th>Username</th>
 						<th>Data</th>
@@ -42,7 +45,8 @@
 						<th>Temperature</th>
 					</tr>
 				</thead>
-				<tbody>
+				
+				<tbody class="slideDown" ng-hide="active">
 					<tr ng-repeat="item in itemList">
 						<td>{{item.username}}</td>
 						<td>{{item.data}}</td>
@@ -56,6 +60,7 @@
 		</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>	
 	<script src="controllers/controller.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="mystyle.css">
 	</body>
 </html>
