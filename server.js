@@ -55,8 +55,7 @@ app.post('/itemList', function(req,res){
 				});
 			});	
 		}else{
-			res.status(403);
-			res.json('duplicate');
+			res.status(403).json('duplicate');
 		}
 	});
 });
@@ -66,10 +65,12 @@ function getGeo(req, callback, ret){
 		if(data.results[0]){
 			var latitude = data.results[0].geometry.location.lat;
 			var longitude = data.results[0].geometry.location.lng;
-			callback(req,latitude,longitude,function(temperature){
+			callback(req,latitude,longitude,function(current){
 				req.body.latitude = latitude;
 				req.body.longitude = longitude;
-				req.body.temperature = temperature;
+				req.body.temperature = current.temperature;
+				req.body.skyicon = current.icon;
+				req.body.skycolor = "red";
 				return ret(req.body);
 			});
 		}
@@ -77,12 +78,11 @@ function getGeo(req, callback, ret){
 }
 
 function getTemperature(req,lat,lng,data){
-	var temperature;
+	var current;
 	forecast.get([lat,lng], function(err,weather){
 		if(err) return console.log("err in get temp" + err);
-		temperature = weather.currently.temperature;
-		req.body.temperature = temperature;
-		return data(temperature);
+		current = weather.currently;
+		return data(current);
 	});
 }
 

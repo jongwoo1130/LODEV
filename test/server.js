@@ -53,7 +53,7 @@ describe("Backend REST Call API", function() {
 
   describe("POST valid value to correct URL", function(){
     var url = "https://localhost:3000/";
-    var data ={username: "10", data: "14", location: "Toronto"};
+    var data ={username: "10", data: "tikitaka", location: "Toronto"};
     it("Should return STATUS CODE 200", function(done) {
     req(url)
     .post('itemList')

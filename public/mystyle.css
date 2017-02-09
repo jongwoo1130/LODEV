@@ -58,6 +58,12 @@ h1 span{
     font: normal bold 18px Courier New, sans-serif;
 }
 
+.skycon{
+    margin-left:3px;
+    width:20px;
+    height:20px;
+}
+
 .box {
     -webkit-transform: rotate(-360deg);
     float:left;

@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', []);
+var myApp = angular.module('myApp', ['angular-skycons']);
 myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
     console.log("Hello World from controller");
 	$scope.active = true;
@@ -28,6 +28,10 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
 				$scope.duplicate = "";
 				refresh();
 			}
-    	});
+    	}).catch(function (error) {
+			if(error.status == 403){
+				$scope.duplicate = "Data already exists!";
+			}
+		});
 	};
 }]);

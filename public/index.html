@@ -19,7 +19,7 @@
 					<tr>
 						<th>Username</th>
 						<th>Data</th>
-						<th>Location</th>
+						<th>City</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -42,10 +42,10 @@
 					<tr>
 						<th>Username</th>
 						<th>Data</th>
-						<th>Location</th>
+						<th>City</th>
 						<th>Latitude</th>
 						<th>Longitude</th>
-						<th>Temperature</th>
+						<th>Current Temperature</th>
 					</tr>
 				</thead>
 				
@@ -56,7 +56,7 @@
 						<td>{{item.location}}</td>
 						<td>{{item.latitude}}</td>
 						<td>{{item.longitude}}</td>
-						<td>{{item.temperature}}</td>
+						<td>{{item.temperature}}<skycon class="skycon" color="item.skycolor" icon="item.skyicon"></skycon></td>
 					</tr>
 				</tbody>
 			</table>
@@ -64,6 +64,8 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>	
 	<script src="controllers/controller.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="bower_components/skycons/skycons.js"></script>
+	<script src="bower_components/angular-skycons/angular-skycons.js"></script>
 	<link rel="stylesheet" type="text/css" href="mystyle.css">
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 	</body>
