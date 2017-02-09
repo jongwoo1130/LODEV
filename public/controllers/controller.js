@@ -34,4 +34,14 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
 			}
 		});
 	};
+
+	$scope.remove = function(id){
+		console.log(id);
+		$http({
+			method: 'DELETE',
+			url: 'itemList/' + id,
+		}).then(function(response){
+			refresh();
+		});
+	};
 }]);

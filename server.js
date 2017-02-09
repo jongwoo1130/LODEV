@@ -60,6 +60,13 @@ app.post('/itemList', function(req,res){
 	});
 });
 
+app.delete('/itemList/:id',function(req,res){
+	var id = req.params.id;
+	db.LODEV.remove({_id: mongojs.ObjectId(id)},function(err,doc){
+		res.json(doc);
+	});
+});
+
 function getGeo(req, callback, ret){
 	geocoder.geocode(req.body.location, function(err,data){
 		if(data.results[0]){
