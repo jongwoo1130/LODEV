@@ -33,7 +33,10 @@
 				<tbody>
 					<tr>
 						<div class="control-group" ng-class="{true: 'error'}[submitted]"> 
-							<td><input class="form-control" ng-model="input.username"></td>
+							<td>
+								<input class="form-control" ng-model="input.username">
+								<span class="help-inline" ng-show="submitted && empty">{{empty}}</span>
+							</td>
 							<td>
 								<input class="form-control" ng-model="input.data">
 								<span class="help-inline" ng-show="submitted && duplicate">{{duplicate}}</span>

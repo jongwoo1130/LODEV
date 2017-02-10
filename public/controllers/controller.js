@@ -26,9 +26,14 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
     			$scope.input.data = ""; //Clear input box
 				$scope.input.location = "";
 				$scope.duplicate = "";
+				$scope.empty = "";
 				refresh();
 			}
     	}).catch(function (error) {
+			console.log(error.status);
+			if(error.status == 400){
+				$scope.empty = "Emtpy inputs are not allowed."
+			}
 			if(error.status == 403){
 				$scope.duplicate = "Data already exists!";
 			}

@@ -43,21 +43,25 @@ app.get('/itemList', function(req,res){
 });
 
 app.post('/itemList', function(req,res){
-	var date = new Date();
-	req.body.date = date.toLocaleString();
-	var query = {};
-	query['data'] = req.body.data;
-	db.LODEV.find(query,function(err,doc){
-		if(doc.length == 0){
-			var obj = getGeo(req,getTemperature,function(result){
-				db.LODEV.insert(result, function(err,doc){
-					res.json(doc);
-				});
-			});	
-		}else{
-			res.status(403).json('duplicate');
-		}
-	});
+	if(!req.body.username && !req.body.data && !req.body.location){
+		res.status(400).json('emtpy');
+	}else{
+		var date = new Date();
+		req.body.date = date.toLocaleString();
+		var query = {};
+		query['data'] = req.body.data;
+		db.LODEV.find(query,function(err,doc){
+			if(doc.length == 0){
+				var obj = getGeo(req,getTemperature,function(result){
+					db.LODEV.insert(result, function(err,doc){
+						res.json(doc);
+					});
+				});	
+			}else{
+				res.status(403).json('duplicate');
+			}
+		});
+	}
 });
 
 app.delete('/itemList/:id',function(req,res){
