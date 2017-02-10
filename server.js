@@ -93,11 +93,12 @@ function getTemperature(req,lat,lng,data){
 	});
 }
 
-//app.listen(3000);
-https.createServer(options, app).listen(3000, function () {
+app.listen(3000);
+console.log("Server is running on port 3000...");
+/*https.createServer(options, app).listen(3000, function () {
    console.log("Server is running on port 3000...");
 });
-
+*/
 
 /************************ Export Functions ************************/
 
