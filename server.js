@@ -36,9 +36,9 @@ app.use(bodyParser.json());
 app.get('/itemList', function(req,res){
 	console.log("I received a GET request");
 	
-	db.LODEV.find(function(err,docs){
+	db.LODEV.find().sort({date:-1}, (function(err,docs){
 		res.json(docs);
-	})
+	}))
 	
 });
 
@@ -95,11 +95,13 @@ function getTemperature(req,lat,lng,data){
 		current = weather.currently;
 		return data(current);
 	});
-}
+
+
 
 app.listen(3000);
 console.log("Server is running on port 3000...");
-/*https.createServer(options, app).listen(3000, function () {
+/*
+https.createServer(options, app).listen(3000, function () {
    console.log("Server is running on port 3000...");
 });
 */
