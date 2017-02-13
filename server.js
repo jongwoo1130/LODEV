@@ -95,7 +95,7 @@ function getTemperature(req,lat,lng,data){
 		current = weather.currently;
 		return data(current);
 	});
-
+}
 
 
 app.listen(3000);
