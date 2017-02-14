@@ -20,6 +20,8 @@ Command MochaJS unit-testing:
     npm test
 Command Loadtest:
     loadtest -c 10 --rps 200 http://localhost:3000
+    loadtest [-n requests] [-c concurrency] [-k] URL
+    --rps requests per second
 Command MongoDB: 
     show dbs
     use LODEV
